@@ -8,6 +8,8 @@ public class RecruitmentServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RecruitmentServiceApplication.class, args);
+		System.out.println("Hello WOrld");
+
 	}
 
 }
