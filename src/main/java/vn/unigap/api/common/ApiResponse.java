@@ -7,7 +7,6 @@ public class ApiResponse<T> {
     private int statusCode;
     private String message;
     private T data;
-    private PagingInfo pagingInfo;
 
 
     public int getErrorCode() {
@@ -42,12 +41,5 @@ public class ApiResponse<T> {
         this.data = data;
     }
 
-    public PagingInfo getPagingInfo() {
-        return pagingInfo;
-    }
-
-    public void setPagingInfo(PagingInfo pagingInfo) {
-        this.pagingInfo = pagingInfo;
-    }
 }
 
