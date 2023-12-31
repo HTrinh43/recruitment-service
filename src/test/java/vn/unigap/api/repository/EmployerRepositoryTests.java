@@ -55,4 +55,55 @@ public class EmployerRepositoryTests {
         Assertions.assertThat(employerList).isNotNull();
         Assertions.assertThat(employerList.size()).isEqualTo(2);
     }
+
+    @Test
+    public void EmployerRepository_FindById_ReturnEmployer(){
+        Employer employer1 = Employer.builder()
+                .email("hello1@gmail.com")
+                .name("Hello1")
+                .province(12345)
+                .description("")
+                .build();
+
+        Employer saveEmployer1 = employerRepository.save(employer1);
+
+        Employer employerList = employerRepository.findById(employer1.getId()).get();
+
+        Assertions.assertThat(employerList).isNotNull();
+    }
+
+    @Test
+    public void EmployerRepository_FindByEmail_ReturnEmployer(){
+        Employer employer1 = Employer.builder()
+                .email("hello1@gmail.com")
+                .name("Hello1")
+                .province(12345)
+                .description("")
+                .build();
+
+        Employer saveEmployer1 = employerRepository.save(employer1);
+
+        Employer employerList = employerRepository.findByEmail(employer1.getEmail()).get();
+
+        Assertions.assertThat(employerList).isNotNull();
+    }
+
+    @Test
+    public void EmployerRepository_UpdateById_ReturnEmployer(){
+        Employer employer1 = Employer.builder()
+                .email("hello1@gmail.com")
+                .name("Hello1")
+                .province(12345)
+                .description("")
+                .build();
+
+        employerRepository.save(employer1);
+
+        Employer employerSave = employerRepository.findById(employer1.getId()).get();
+        employerSave.setProvince(32112);
+
+        Employer updatedEmployer = employerRepository.save(employerSave);
+
+        Assertions.assertThat(updatedEmployer.getProvince()).isNotNull();
+    }
 }
