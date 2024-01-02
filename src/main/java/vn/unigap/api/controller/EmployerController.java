@@ -32,7 +32,7 @@ public class EmployerController {
 
 
     @PostMapping
-    public ResponseEntity<ApiResponse<List<Object>>> create(@RequestBody @Valid CreateEmployerDtoIn employerDtoIn){
+    public ResponseEntity<?> create(@RequestBody @Valid CreateEmployerDtoIn employerDtoIn){
         Employer employer = this.employerService.createEmployer(employerDtoIn);
         ApiResponse<List<Object>> response = new ApiResponse<>();
         response.setErrorCode(0);
@@ -42,7 +42,7 @@ public class EmployerController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<List<Object>>> update(@PathVariable(value="id") Long id, @RequestBody @Valid UpdateEmployerDtoIn updateEmployerDtoIn){
+    public ResponseEntity<?> update(@PathVariable(value="id") Long id, @RequestBody @Valid UpdateEmployerDtoIn updateEmployerDtoIn){
         Employer employer = this.employerService.updateEmployer(updateEmployerDtoIn);
         ApiResponse<List<Object>> response = new ApiResponse<>();
         response.setErrorCode(0);
@@ -53,7 +53,7 @@ public class EmployerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<EmployerDtoOut>> get(@PathVariable(value="id") Integer id){
+    public ResponseEntity<?> get(@PathVariable(value="id") Integer id){
         EmployerDtoOut employerDtoOut = this.employerService.getEmployer(id);
         ApiResponse<EmployerDtoOut> response = new ApiResponse<>();
         response.setErrorCode(0);
