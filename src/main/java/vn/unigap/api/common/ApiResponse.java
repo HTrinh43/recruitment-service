@@ -1,7 +1,5 @@
 package vn.unigap.api.common;
 
-import java.util.List;
-
 public class ApiResponse<T> {
     private int errorCode;
     private int statusCode;

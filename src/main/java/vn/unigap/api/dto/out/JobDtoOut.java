@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import vn.unigap.api.entity.Job;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
