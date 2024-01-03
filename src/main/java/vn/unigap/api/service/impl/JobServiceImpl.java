@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import vn.unigap.api.dto.in.DateDtoIn;
 import vn.unigap.api.dto.in.JobDtoIn;
 import vn.unigap.api.dto.in.PageDtoIn;
 import vn.unigap.api.dto.in.UpdateJobDtoIn;
@@ -90,6 +91,11 @@ public class JobServiceImpl implements JobService {
                 Sort.by("id").ascending()));
         return PageDtoOut.from(pageDtoIn.getPage(), pageDtoIn.getPageSize(), jobs.getTotalElements(),
                 jobs.stream().map(JobDtoOut::from).toList());
+    }
+
+    @Override
+    public Long countJobsBetweenDate(DateDtoIn dateDtoIn) {
+        return jobRepository.countJobsBetween(dateDtoIn.getFromDate(), dateDtoIn.getToDate());
     }
 
 

@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="Resume")
+@Table(name="resume",schema = "job_db")
 public class Resume {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +24,6 @@ public class Resume {
     private Integer salary;
     private String fields;
     private String provinces;
-    private Date create_at;
-    private Date updated_at;
+    private Date create_at= new Date();
+    private Date updated_at= new Date();
 }

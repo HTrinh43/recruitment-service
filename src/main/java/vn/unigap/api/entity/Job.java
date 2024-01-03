@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="Job")
+@Table(name="jobs",schema = "job_db")
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,9 +34,9 @@ public class Job {
     @Column(name="provinces")
     private String provinces;
     @Column(name="created_at")
-    private Date created_at;
+    private Date created_at= new Date();
     @Column(name="updated_at")
-    private Date updated_at;
+    private Date updated_at= new Date();
     @Column(name="expired_at")
     private Date expired_at;
 

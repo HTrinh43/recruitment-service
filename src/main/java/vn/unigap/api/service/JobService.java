@@ -1,5 +1,6 @@
 package vn.unigap.api.service;
 
+import vn.unigap.api.dto.in.DateDtoIn;
 import vn.unigap.api.dto.in.JobDtoIn;
 import vn.unigap.api.dto.in.PageDtoIn;
 import vn.unigap.api.dto.in.UpdateJobDtoIn;
@@ -22,4 +23,6 @@ public interface JobService {
     List<JobDtoOut> getAllJob();
 
     PageDtoOut<JobDtoOut> list(PageDtoIn pageDtoIn);
+
+    Long countJobsBetweenDate(DateDtoIn dateDtoIn);
 }

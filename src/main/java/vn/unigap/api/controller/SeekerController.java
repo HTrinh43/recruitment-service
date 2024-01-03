@@ -29,7 +29,7 @@ public class SeekerController extends AbstractResponseController {
     }
 
     @GetMapping
-    public ResponseEntity<?> list(@Valid PageSeekerDtoIn pageDtoIn){
+    public ResponseEntity<?> list(@RequestBody @Valid PageSeekerDtoIn pageDtoIn){
         return responseEntity(
                 () -> {return seekerService.list(pageDtoIn);}
                 , 201, false

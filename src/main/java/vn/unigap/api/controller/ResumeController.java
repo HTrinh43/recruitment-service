@@ -30,7 +30,7 @@ public class ResumeController extends AbstractResponseController{
         );
     }
     @GetMapping
-    public ResponseEntity<?> list(@Valid PageResumeDtoIn pageDtoIn){
+    public ResponseEntity<?> list(@RequestBody @Valid PageResumeDtoIn pageDtoIn){
         return responseEntity(
                 () -> {return resumeService.list(pageDtoIn);}
                 , 201, false

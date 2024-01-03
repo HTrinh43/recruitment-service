@@ -8,10 +8,10 @@ import lombok.Data;
 public class PageDtoIn {
     @NotNull
     @Min(value = 1)
-    private Integer page = 1;
+    private Integer page;
 
     @NotNull
     @Min(value = 1)
     @Max(value = 500)
-    private Integer pageSize = 10;
+    private Integer pageSize;
 }

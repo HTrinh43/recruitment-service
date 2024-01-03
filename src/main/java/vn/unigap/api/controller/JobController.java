@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.unigap.api.common.ApiResponse;
+import vn.unigap.api.dto.in.DateDtoIn;
 import vn.unigap.api.dto.in.JobDtoIn;
 import vn.unigap.api.dto.in.PageDtoIn;
 import vn.unigap.api.dto.out.JobDtoOut;
@@ -17,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/jobs")
-public class JobController  {
+public class JobController extends AbstractResponseController {
     private final JobService jobService;
     @Autowired
     public JobController(JobService jobService){
@@ -46,7 +47,7 @@ public class JobController  {
     }
 
     @GetMapping("/pages")
-    public ResponseEntity<?> list(@Valid PageDtoIn pageDtoIn){
+    public ResponseEntity<?> list(@RequestBody @Valid PageDtoIn pageDtoIn){
         PageDtoOut<JobDtoOut> jobList = jobService.list(pageDtoIn);
         ApiResponse<PageDtoOut<JobDtoOut>> response = new ApiResponse<>();
         response.setErrorCode(0);
@@ -54,5 +55,13 @@ public class JobController  {
         response.setData(jobList);
         response.setMessage("Get all jobs successfully");
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/analysis")
+    public ResponseEntity<?> countJobsBetweenDate(@Valid DateDtoIn dateDtoIn){
+        return responseEntity(
+                ()-> {return jobService.countJobsBetweenDate(dateDtoIn);},
+                201, false
+        );
     }
 }
