@@ -1,9 +1,10 @@
-package vn.unigap.api.common;
+package vn.unigap.api.common.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import vn.unigap.api.common.ApiResponse;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
