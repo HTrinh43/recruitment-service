@@ -5,7 +5,9 @@ Recruitment Service is an API service that helps companies analyze recruitment a
 ## Installation
 
 Start all necessary services in `docker-compose` folder:
+
 Required: Mysql, Mongodb, Redis
+
 Optional: Prometheus, Graphana
 
 Use Maven [mvn] to install Recruitment Service.
